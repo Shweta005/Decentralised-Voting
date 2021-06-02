@@ -8,9 +8,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"name": "candidate",
@@ -29,6 +29,21 @@
 						"internalType": "uint256",
 						"name": "cid",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isCandidate",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "iscActive",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "cadd",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -51,6 +66,24 @@
 				"inputs": [
 					{
 						"internalType": "string",
+						"name": "_cname",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_cage",
+						"type": "uint8"
+					}
+				],
+				"name": "registerCandidate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
 						"name": "_name",
 						"type": "string"
 					},
@@ -60,7 +93,7 @@
 						"type": "uint8"
 					}
 				],
-				"name": "registerUser",
+				"name": "registerVoter",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -68,9 +101,35 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
+						"name": "_add",
+						"type": "address"
+					}
+				],
+				"name": "setCandActive",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_add",
+						"type": "address"
+					}
+				],
+				"name": "setVoterActive",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"name": "voter",
@@ -91,25 +150,22 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "address",
+						"name": "vadd",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "isVoter",
+						"type": "bool"
+					},
+					{
 						"internalType": "bool",
 						"name": "isActive",
 						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint8",
-						"name": "_id",
-						"type": "uint8"
-					}
-				],
-				"name": "voterActive",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -154,10 +210,10 @@
 	},
 	"sources": {
 		"Decentralised-Voting/Storage.sol": {
-			"keccak256": "0x40d953b6069747f6f972a54d3c99ab3acf331565eb6b25e5bc78e761def44365",
+			"keccak256": "0xfb64362aef086b52c412f4991f6092b6fcc50e66e85ded079d43e8d4d0975137",
 			"urls": [
-				"bzz-raw://bd35ebee7330e16da5702bffadeeb2458025b257d217d8e912fd76e277733b62",
-				"dweb:/ipfs/QmZLVvdANuH6rqjenkv19uxqFkeWKTJ9afHkGgrFKvz86z"
+				"bzz-raw://9365c59a9b5ecdb1382839bc4281b72aa9bd474ddce2c3d1b1802824e78cdf9b",
+				"dweb:/ipfs/QmRwN38YhvadfGcJHpB2AEB5rWgM9pTVr39LxGzbR1iaYM"
 			]
 		}
 	},
