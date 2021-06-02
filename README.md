@@ -1,6 +1,6 @@
 # Decentralised-Voting
 ## Files:
-###Controller.sol
-###Storage.sol
-###Voting.sol
+1.Controller.sol
+2.Storage.sol
+3.Voting.sol
 Project-1
