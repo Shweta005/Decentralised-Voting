@@ -8,6 +8,42 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "_cname",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_cage",
+						"type": "uint8"
+					}
+				],
+				"name": "RegisterCandidate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_age",
+						"type": "uint8"
+					}
+				],
+				"name": "RegisterVoter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -65,44 +101,8 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_cname",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_cage",
-						"type": "uint8"
-					}
-				],
-				"name": "registerCandidate",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_age",
-						"type": "uint8"
-					}
-				],
-				"name": "registerVoter",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
-						"name": "_add",
+						"name": "add",
 						"type": "address"
 					}
 				],
@@ -210,10 +210,10 @@
 	},
 	"sources": {
 		"Decentralised-Voting/Storage.sol": {
-			"keccak256": "0x62ff0272b32a76c2e73daa3a7f2e6c9f927b835852976231a953fe8e66fc029f",
+			"keccak256": "0x091259a4c75d1cf6e25012301372852e1e05550c5f2e0120a2627e79b9b7540c",
 			"urls": [
-				"bzz-raw://911f36c3d15f9b380908a5a6778489b0ddcf40000a5551604a53184f5899547b",
-				"dweb:/ipfs/QmUNs9RchGfzHRALZz5QWaMyhgLXHBT5QQ8Uu5nTY3XiUV"
+				"bzz-raw://5e8ca3bf4c5fccb046c440c6bd5b1c000275ee8d21edb64e79fb45ab09c3e135",
+				"dweb:/ipfs/QmeZTjpGdDhJ5yi3uRgjQxPm2pwGB4gG8xrBGDSVoHVSU6"
 			]
 		}
 	},
