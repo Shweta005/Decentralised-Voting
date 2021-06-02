@@ -26,12 +26,12 @@ contract Storage{
     mapping(address =>Voter) public voter;
     mapping(address=>Candidate) public  candidate;
     
-    /* modifier registered(address add){
-      require(msg.sender != candidate[add].cadd," ");  
+    modifier registered{
+      require(msg.sender != candidate[msg.sender].cadd,"try another address ");  
         _;
-    }*/
+    }
     
-    function registerVoter(string memory _name, uint8 _age)   public  {
+    function registerVoter(string memory _name, uint8 _age) registered  public  {
         voterCounter++;
         Voter memory vot;
         vot.id      = voterCounter; 

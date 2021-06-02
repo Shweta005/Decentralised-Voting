@@ -210,10 +210,10 @@
 	},
 	"sources": {
 		"Decentralised-Voting/Storage.sol": {
-			"keccak256": "0xfb64362aef086b52c412f4991f6092b6fcc50e66e85ded079d43e8d4d0975137",
+			"keccak256": "0x62ff0272b32a76c2e73daa3a7f2e6c9f927b835852976231a953fe8e66fc029f",
 			"urls": [
-				"bzz-raw://9365c59a9b5ecdb1382839bc4281b72aa9bd474ddce2c3d1b1802824e78cdf9b",
-				"dweb:/ipfs/QmRwN38YhvadfGcJHpB2AEB5rWgM9pTVr39LxGzbR1iaYM"
+				"bzz-raw://911f36c3d15f9b380908a5a6778489b0ddcf40000a5551604a53184f5899547b",
+				"dweb:/ipfs/QmUNs9RchGfzHRALZz5QWaMyhgLXHBT5QQ8Uu5nTY3XiUV"
 			]
 		}
 	},
