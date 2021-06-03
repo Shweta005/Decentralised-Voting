@@ -6,16 +6,29 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "Owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
 						"name": "_cname",
 						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_cage",
-						"type": "uint8"
 					}
 				],
 				"name": "RegisterCandidate",
@@ -45,6 +58,19 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_cadd",
+						"type": "address"
+					}
+				],
+				"name": "Vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -55,11 +81,6 @@
 						"internalType": "string",
 						"name": "name",
 						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "age",
-						"type": "uint8"
 					},
 					{
 						"internalType": "uint256",
@@ -80,6 +101,16 @@
 						"internalType": "address",
 						"name": "cadd",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isVoted",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -101,12 +132,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "add",
-						"type": "address"
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
 					}
 				],
-				"name": "setCandActive",
+				"name": "checkVotesByName",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -122,6 +153,19 @@
 				"name": "setVoterActive",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalVotes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -163,6 +207,11 @@
 						"internalType": "bool",
 						"name": "isActive",
 						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isVoted",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -195,7 +244,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Decentralised-Voting/Storage.sol": "Storage"
+			"demo.sol": "Storage"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -209,11 +258,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"Decentralised-Voting/Storage.sol": {
-			"keccak256": "0x091259a4c75d1cf6e25012301372852e1e05550c5f2e0120a2627e79b9b7540c",
+		"demo.sol": {
+			"keccak256": "0x27ecf1ce4211842c7b5ae092d856ab6279ee0a677b304a58382056ab56341d24",
 			"urls": [
-				"bzz-raw://5e8ca3bf4c5fccb046c440c6bd5b1c000275ee8d21edb64e79fb45ab09c3e135",
-				"dweb:/ipfs/QmeZTjpGdDhJ5yi3uRgjQxPm2pwGB4gG8xrBGDSVoHVSU6"
+				"bzz-raw://ccfb24e6f762a7e20896c06a04d2e5bc81c3b17d591279cdaba6f7b38ef38eb1",
+				"dweb:/ipfs/QmSUwLWhbiwg2Q3rmH148xiAg8B8JbCaz8qTcKxL6vEnpU"
 			]
 		}
 	},
