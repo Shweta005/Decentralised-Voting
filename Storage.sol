@@ -1,40 +1,31 @@
-pragma solidity 0.8.0;
+pragma solidity ^0.8.0;
 
 contract Storage{
     
-   
     address public controller;
     
-    //Voter's Data
     struct Voter{
         string name;
-        uint8  age;
-        uint256 id;
-        address vadd;
+        uint8 age;
         bool isVoter;
         bool isActive;
+        bool isVoted;
     }
+     
+     struct Candidate{
+        string name;
+        uint256 votes;
+       }
     
-    //Candidate's Data
-    struct Candidate{
-        string  cname;
-        uint256 cid;
-        bool isCandidate;
-        address cadd;
-    }
+    uint256 public _voterCounter;
+    uint256 public _canCounter;
+    mapping(address => uint256) private _voterIds;
+    mapping(uint256 => Voter) private _voters;
     
-    //counter variables
-    uint256 public voterCounter;
-    uint256 public candidateCounter;
+    mapping(address => uint256) private _canIds;
+    mapping(uint256 => Candidate) private _cans;
     
-    
-    //mapping(address =>Voter) public voter; //mapping for voter
-   // mapping(address=>Candidate) public  candidate;   //mapping for candidate
-    
-     mapping(uint256 =>Voter) public voter; //mapping for voter
-    mapping(uint256 =>Candidate) public  candidate;   //mapping for candidate
-    
-      constructor (address _controller) {
+    constructor (address _controller) {
         controller = _controller;
     }
     
@@ -47,88 +38,79 @@ contract Storage{
         require( controller != address(0), "Storage: contract not initialised" );
         _;
     }
-    
-    function setController(address _controller) initialised onlyController public {
+     
+     function setController(address _controller) initialised onlyController public {
         require(_controller != address(0), "Storage: controller cannot be zero address");
         controller = _controller;
     }
     
     
-    
-    //modifier to check that voter and candidates cannot register with same address
-   /* modifier registered{
-      require(msg.sender != candidate[candidateCounter].cadd,"try another address ");  
-        _;
-    }*/
-    
-   /*modifier notController{
-      require(msg.sender != controller,"try another address ");  
-        _;
-    }*/
-    
-    //modifier to check voter is exist or not
-     modifier checkVoter(){
-    require(voter[voterCounter].id != 0,"Voter doesn't exist");
-            _;
-    }
-    //modifier to check candidate is exist or not
-     modifier checkCandidate(){
-    require(candidate[candidateCounter].cid != 0,"Candidate doesn't exist");
-            _;
+    //Register Voter
+    function registerVoter(string memory _name, uint8 _age, address _voter) onlyController initialised public {
+        //require(msg.sender != controller,"Its Owner's Address");
+        _voterCounter++;
+        Voter memory voter = Voter(_name, _age,true,false,false);
+        _voterIds[_voter] = _voterCounter;
+        _voters[_voterCounter] = voter;
     }
     
+    //updates voter's Name
+    function updateName(string memory _newName, address _voter) onlyController initialised public {
+        uint256 voterId = _voterIds[_voter];
+        _voters[voterId].name = _newName;
+    }
     
-    //register voter
-    function RegisterVoter(string memory _name, uint8 _age)   initialised  public  {
-        require(msg.sender != candidate[candidateCounter].cadd,"Already registered by Candidate");  
-        require(msg.sender != voter[voterCounter].vadd,"Alrady registered by Voter");
-        voterCounter++;
-        Voter memory vot;
-        vot.id      = voterCounter; 
-        vot.name    = _name;
-        vot.age     = _age;
-        vot.vadd    = msg.sender;
-        vot.isVoter = true;
-        voter[voterCounter] = vot;
+     //updates voter's Name
+    function updateAge(uint8 _newAge, address _voter) onlyController initialised public {
+        uint256 voterId = _voterIds[_voter];
+        _voters[voterId].age = _newAge;
+    }
+
+    //get Voter's data
+    function getVoter(address _voter) public initialised view returns(string memory name_, uint8 age_,bool  ,bool  ,bool) {
+        uint256 voterId = _voterIds[_voter];
+        return (_voters[voterId].name, _voters[voterId].age, _voters[voterId].isVoter, _voters[voterId].isActive, _voters[voterId].isVoted);
+    }
+    
+    //get voter's ID
+    function getVoterId(address _voter) public  initialised view returns(uint id_){
+        return _voterIds[_voter];
+    }
+    
+    function setVoterActive(address _voter) onlyController initialised public  {
         
-      
-    }
-        
-   //function to set voter active
-    function setVoterActive(uint256 _id) checkVoter initialised public{
-        require(voter[_id].age >= 18 ,"You age must be 18");
-        voter[_id].isActive = true;
+          uint256 Id = _voterIds[_voter]; 
+          require(_voters[Id].age >= 18 , "You must be 18 years old");
+          _voters[Id].isActive = true;
     }
     
-        //register candidate
-    function RegisterCandidate(string memory _cname)  initialised   public{
-         require(msg.sender != candidate[candidateCounter].cadd,"Already registered by Candidate");  
-        require(msg.sender != voter[voterCounter].vadd,"Alrady registered by Voter");
-        candidateCounter++;
-        Candidate memory can;
-        can.cid         = candidateCounter;
-        can.cname        = _cname;
-        //can.age         = _cage;
-           
-        can.cadd        = msg.sender;
-        can.isCandidate = true;
-        candidate[candidateCounter] = can;
+   
+    
+    //Candidate
+    
+    //Register Candidate
+    function registerCandidate(string memory _name, address _canAdd) onlyController initialised public {
+        // require(msg.sender != controller,"Its Owner's Address");
+        _canCounter++;
+        Candidate memory can = Candidate(_name, 0);
+        _canIds[_canAdd] = _canCounter;
+        _cans[_canCounter] = can;
     }
+    
+     //updates Candidate's Name
+    function updateCName(string memory _newName, address _can) onlyController initialised public {
+        uint256 canId = _canIds[_can];
+        _cans[canId].name = _newName;
+    }
+    
+    //get Candidate's data
+    function getCandidate(address _can) public initialised view returns(string memory name_, uint256 _votes) {
+        uint256 canId = _canIds[_can];
+        return (_cans[canId].name,_cans[canId].votes);
+    }
+    
     
     
     
     
 }
-
-
-
-
-
-
-
-
-
-/*//function to set voter active
-    function setCandActive(address add) checkCandidate initialised public{
-        require(candidate[add].age >= 18 ,"You age must be 18");
-        candidate[add].iscActive = true;*/

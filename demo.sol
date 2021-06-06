@@ -21,7 +21,7 @@ contract Storage{
         bool iscActive;
         address cadd;
         uint256 votes;
-        bool isVoted;
+        //bool isVoted;
     }
     uint256 public totalVotes;
     address public Owner;
@@ -34,9 +34,12 @@ contract Storage{
     uint256 public candidateCounter;
     
     
-    mapping(address =>Voter) public voter; //mapping for voter
-    mapping(address=>Candidate) public  candidate;   //mapping for candidate
-    
+ 
+  //mapping for voter
+    mapping(address=>Voter) public voter;
+  
+   //mapping for candidate
+    mapping(address=>Candidate) public  candidate;
     
     //modifier to check that voter and candidates cannot register with same address
     modifier registered{
@@ -75,7 +78,7 @@ contract Storage{
     }
         
    //function to set voter active
-    function setVoterActive(address _add) checkVoter onlyOwner public{
+    function setVoterActive(address _add)checkVoter onlyOwner public{
         require(voter[_add].age >= 18 ,"You age must be 18");
         voter[_add].isActive = true;
     }
@@ -93,25 +96,17 @@ contract Storage{
         candidate[msg.sender] = can;
     }
     
-    function Vote(address _cadd) public{
+    function Vote(address _add) public{
+        require(voter[msg.sender].isVoted==false,"You are already voted");
        totalVotes++;
-       candidate[_cadd].votes += 1;
+       candidate[_add].votes += 1;
       if(voter[msg.sender].vadd== msg.sender){
          voter[msg.sender].isVoted = true; 
       }
-       if(candidate[msg.sender].cadd==msg.sender){
+      /*if(candidate[msg.sender].cadd==msg.sender){
            candidate[msg.sender].isVoted = true; 
-       }
-        }
+       }*/
+    }
         
-        function checkVotesByName(string memory name)public {
-            
-        }
-    
-   
-    
-    
-    
-    
-    
+        
 }

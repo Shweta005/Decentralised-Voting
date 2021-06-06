@@ -25,14 +25,76 @@
 				"type": "event"
 			},
 			{
+				"inputs": [],
+				"name": "getCandidate",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votes_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVoter",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "age_",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVoterId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "_cname",
+						"name": "_name",
 						"type": "string"
 					}
 				],
-				"name": "RegisterCandidate",
+				"name": "registerCandidate",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -50,22 +112,9 @@
 						"type": "uint8"
 					}
 				],
-				"name": "RegisterVoter",
+				"name": "registerVoter",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "owner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -105,7 +154,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_add",
+						"name": "_voter",
 						"type": "address"
 					}
 				],
@@ -136,6 +185,45 @@
 					}
 				],
 				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "_newAge",
+						"type": "uint8"
+					}
+				],
+				"name": "updateAge",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_newName",
+						"type": "string"
+					}
+				],
+				"name": "updateCName",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_newName",
+						"type": "string"
+					}
+				],
+				"name": "updateName",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -179,17 +267,17 @@
 	},
 	"sources": {
 		"Controller.sol": {
-			"keccak256": "0xa056b517979372c51ba05d3867158a8ecab14df7e5c03c843a289a139ac44256",
+			"keccak256": "0x4f8303007acccb7694c86939517d651909eabbdba54184d825f0a75762c36799",
 			"urls": [
-				"bzz-raw://60c9f012226157fcacb2fff57c6a9e44f7854df7c85f8b6a62617ffd0fa48afe",
-				"dweb:/ipfs/QmPr5uqA5M8gonP3CHiDFXXWGXtVbUgvXtRc3YpRgoCw4J"
+				"bzz-raw://911121d45f08439028db05ccd3818d765a3a3bd831fdf03c8aa98bae98314107",
+				"dweb:/ipfs/Qma7J14ZtC2fANwLhqXFFtmhdrJXsTtRinnAbbUQQMF7ra"
 			]
 		},
 		"IStorage.sol": {
-			"keccak256": "0x4031015e81b21c845e3c243df9954e45f162c4f72ae396ab52e02f01a2857164",
+			"keccak256": "0x379ee851409181e4b8e3c76ada84cd07740e7d483547f6274f1c71a5a65e06ad",
 			"urls": [
-				"bzz-raw://4985fc3ff74ce88a932e8263e3697db2fc41a9d238eaf905312e7dc7be06b670",
-				"dweb:/ipfs/QmbAeXwX92cABFeDWQnfuq6puFKtAFhjDPzArofQLyzPrF"
+				"bzz-raw://a00c97aabe0d57303bec652f8e37e4841960972a29a788d78706eec93648a667",
+				"dweb:/ipfs/QmWcezC74EJFYsrCDdPUX4wBAuJ4WVWDJUSwG8kTB9Udm2"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol": {

@@ -1,0 +1,52 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Ballot.sol": "Ballot"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Ballot.sol": {
+			"keccak256": "0xf815ad9daed0eb342eb328a915eea6351b72fec879b3c83bf6c09b02c15cea5d",
+			"urls": [
+				"bzz-raw://950ce67170c210544c38b3e321b39737972ace9174cb52e491658884ef4fddda",
+				"dweb:/ipfs/QmNMpeK4G8k984YLRfL25Rndn7kTNSWNa3KeXsLvrPnJRr"
+			]
+		}
+	},
+	"version": 1
+}

@@ -6,13 +6,45 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_controller",
+						"type": "address"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
 			{
 				"inputs": [],
-				"name": "Owner",
+				"name": "_canCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_voterCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "controller",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -26,12 +58,99 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_cname",
-						"type": "string"
+						"internalType": "address",
+						"name": "_can",
+						"type": "address"
 					}
 				],
-				"name": "RegisterCandidate",
+				"name": "getCandidate",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_votes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_voter",
+						"type": "address"
+					}
+				],
+				"name": "getVoter",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "age_",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_voter",
+						"type": "address"
+					}
+				],
+				"name": "getVoterId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id_",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_canAdd",
+						"type": "address"
+					}
+				],
+				"name": "registerCandidate",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -47,9 +166,14 @@
 						"internalType": "uint8",
 						"name": "_age",
 						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "_voter",
+						"type": "address"
 					}
 				],
-				"name": "RegisterVoter",
+				"name": "registerVoter",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -58,11 +182,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_cadd",
+						"name": "_controller",
 						"type": "address"
 					}
 				],
-				"name": "Vote",
+				"name": "setController",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -71,82 +195,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "candidate",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "cid",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "isCandidate",
-						"type": "bool"
-					},
-					{
-						"internalType": "bool",
-						"name": "iscActive",
-						"type": "bool"
-					},
-					{
-						"internalType": "address",
-						"name": "cadd",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "votes",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "isVoted",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "candidateCounter",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					}
-				],
-				"name": "checkVotesByName",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_add",
+						"name": "_voter",
 						"type": "address"
 					}
 				],
@@ -156,78 +205,57 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "totalVotes",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"internalType": "uint8",
+						"name": "_newAge",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "_voter",
+						"type": "address"
 					}
 				],
-				"stateMutability": "view",
+				"name": "updateAge",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "voter",
-				"outputs": [
-					{
 						"internalType": "string",
-						"name": "name",
+						"name": "_newName",
 						"type": "string"
 					},
 					{
-						"internalType": "uint8",
-						"name": "age",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
 						"internalType": "address",
-						"name": "vadd",
+						"name": "_can",
 						"type": "address"
-					},
-					{
-						"internalType": "bool",
-						"name": "isVoter",
-						"type": "bool"
-					},
-					{
-						"internalType": "bool",
-						"name": "isActive",
-						"type": "bool"
-					},
-					{
-						"internalType": "bool",
-						"name": "isVoted",
-						"type": "bool"
 					}
 				],
-				"stateMutability": "view",
+				"name": "updateCName",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "voterCounter",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "_newName",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_voter",
+						"type": "address"
 					}
 				],
-				"stateMutability": "view",
+				"name": "updateName",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -244,7 +272,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"demo.sol": "Storage"
+			"Storage.sol": "Storage"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -258,11 +286,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"demo.sol": {
-			"keccak256": "0x27ecf1ce4211842c7b5ae092d856ab6279ee0a677b304a58382056ab56341d24",
+		"Storage.sol": {
+			"keccak256": "0x6e513fd04da0fcbba453a809761cd814fdd8e09d4c97f22a8ae788de4b4723e4",
 			"urls": [
-				"bzz-raw://ccfb24e6f762a7e20896c06a04d2e5bc81c3b17d591279cdaba6f7b38ef38eb1",
-				"dweb:/ipfs/QmSUwLWhbiwg2Q3rmH148xiAg8B8JbCaz8qTcKxL6vEnpU"
+				"bzz-raw://7c78e6d7c31eed73c5f2457ac14766616c1d5a9aec53eb3962331018896e7f8f",
+				"dweb:/ipfs/QmNvAH53EVzfE4Pnt5CzGvrV4WoqL1rnMzWyFMh6AnwGPq"
 			]
 		}
 	},
